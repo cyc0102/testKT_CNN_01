@@ -50,4 +50,4 @@ def show_train_history(train_acc,test_acc):
 show_train_history('acc','val_acc')
 
 scores = model.evaluate(x_Test4D_normalize , y_TestOneHot)
-scores[1]
+print('Test accuracy:', scores[1])
