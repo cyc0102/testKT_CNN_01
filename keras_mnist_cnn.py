@@ -53,7 +53,7 @@ scores = model.evaluate(x_Test4D_normalize , y_TestOneHot)
 print('Test accuracy:', scores[1])
 
 prediction=model.predict_classes(x_Test4D_normalize)
-print('First 10 image is', prediction[:10])
+print('First 10 images are', prediction[:10])
 
 
 from keras.models import load_model
