@@ -51,3 +51,6 @@ show_train_history('acc','val_acc')
 
 scores = model.evaluate(x_Test4D_normalize , y_TestOneHot)
 print('Test accuracy:', scores[1])
+
+prediction=model.predict_classes(x_Test4D_normalize[0])
+print('First image is', prediction)
