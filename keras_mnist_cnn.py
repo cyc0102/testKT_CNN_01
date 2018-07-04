@@ -14,20 +14,22 @@ y_TestOneHot = np_utils.to_categorical(y_Test)
 from keras.models import Sequential
 from keras.layers import Dense,Dropout,Flatten,Conv2D,MaxPooling2D
 model = Sequential()
-model.add(Conv2D(filters=16,
+model.add(Conv2D(filters=20,
                  kernel_size=(5,5),
 #                 padding='same',
                  input_shape=(28,28,1), 
                  activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))    
-model.add(Conv2D(filters=36,
+model.add(Conv2D(filters=40,
                  kernel_size=(5,5),
 #                 padding='same',
                  activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2))) 
 model.add(Dropout(0.25))
 model.add(Flatten())  
-model.add(Dense(128, activation='relu')) 
+model.add(Dense(1000, activation='relu')) 
+model.add(Dropout(0.5))  
+model.add(Dense(1000, activation='relu')) 
 model.add(Dropout(0.5))  
 model.add(Dense(10,activation='softmax')) 
 print(model.summary())
@@ -35,8 +37,8 @@ print(model.summary())
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',metrics=['accuracy']) 
 train_history=model.fit(x=x_Train4D_normalize, 
-                        y=y_TrainOneHot,validation_split=0.2, 
-                        epochs=20, batch_size=300,verbose=2)
+                        y=y_TrainOneHot,validation_split=0.15, 
+                        epochs=30, batch_size=300,verbose=2)
 
 import matplotlib.pyplot as plt
 def show_train_history(train_acc,test_acc):
