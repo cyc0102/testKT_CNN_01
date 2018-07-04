@@ -37,8 +37,8 @@ print(model.summary())
 model.compile(loss='categorical_crossentropy',
               optimizer='adam',metrics=['accuracy']) 
 train_history=model.fit(x=x_Train4D_normalize, 
-                        y=y_TrainOneHot,validation_split=0.15, 
-                        epochs=30, batch_size=300,verbose=2)
+                        y=y_TrainOneHot,validation_split=0.2, 
+                        epochs=60, batch_size=300,verbose=2)
 
 import matplotlib.pyplot as plt
 def show_train_history(train_acc,test_acc):
